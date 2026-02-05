@@ -1,0 +1,438 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@baolacai.com",
+      "password": "123",
+      "full_name": "Tổng Biên Tập",
+      "role": "admin",
+      "avatar": "https://i.pravatar.cc/150?u=admin"
+    },
+    {
+      "id": "2",
+      "email": "hongsang@gmail.com",
+      "password": "123",
+      "full_name": "Thánh Hóng Hớt",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?u=user2"
+    },
+    {
+      "id": "ad48",
+      "email": "htri@gmail.com",
+      "password": "123456",
+      "full_name": "htri",
+      "avatar": "https://th.bing.com/th/id/OIP.n2J-te2edVD91F8w6udMmgHaHa?w=168&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+      "role": "user"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "CHẤN ĐỘNG: Phát hiện người ngoài hành tinh đi xe ôm tại ngã tư Hàng Xanh",
+      "thumbnail": "https://picsum.photos/id/1039/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Sáng nay, hàng ngàn người dân tại khu vực ngã tư Hàng Xanh (TP.HCM) đã chứng kiến một cảnh tượng 'xưa nay hiếm': Một sinh vật lạ màu xanh lá cây đang... trả giá xe ôm công nghệ.</strong></p><p>Theo nhân chứng Nguyễn Văn A (bán vé số), sinh vật này cao khoảng 1m2, đầu to gấp đôi người thường, trên tay cầm một vật thể giống như iPhone 16 Pro Max (dù Apple chưa ra mắt). 'Nó nói tiếng gì tôi không hiểu, nhưng nghe loáng thoáng giống giọng Quảng Nam', anh A chia sẻ.</p><h3>Phản ứng của tài xế xe ôm</h3><p>Anh Trần B, tài xế BeBike, người trực tiếp chở vị khách đặc biệt này cho biết: <em>'Ban đầu tôi tưởng ai đó cosplay đi lễ hội truyện tranh. Nhưng khi nó đưa tôi 2 cục đá phát sáng bảo là tiền cước, tôi mới biết đây không phải người Trái Đất.'</em></p><p>Hiện tại, các nhà khoa học NASA đã... chưa lên tiếng gì về vụ việc này. Cộng đồng mạng đang đồn đoán rằng người ngoài hành tinh đến Trái Đất chỉ để thử món bánh mì Huỳnh Hoa.</p><p><em>Chúng tôi sẽ tiếp tục cập nhật...</em></p>",
+      "author_id": 2,
+      "category": "Chuyện Lạ",
+      "created_at": "2024-02-05",
+      "views": 10000,
+      "user": {
+        "id": "2",
+        "email": "hongsang@gmail.com",
+        "password": "123",
+        "full_name": "Thánh Hóng Hớt",
+        "role": "user",
+        "avatar": "https://i.pravatar.cc/150?u=user2"
+      },
+      "comments": [
+        {
+          "id": "1",
+          "post_id": 1,
+          "user_id": 2,
+          "content": "Tin chuẩn không anh em? Để ra xem thử!",
+          "created_at": "2024-02-05"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "SỐC: Chàng trai 2k cưa đổ 'máy bay' 8x chỉ bằng một gói mì tôm Hảo Hảo",
+      "thumbnail": "https://picsum.photos/id/1060/800/450",
+      "content": "<p><strong>Tình yêu không phân biệt tuổi tác, và giờ đây không phân biệt cả giàu nghèo. Câu chuyện tình 'đũa lệch' pha chút vị chua cay của mì tôm đang làm chao đảo TikTok.</strong></p><p>Chàng trai tên T. (sinh năm 2000) đã chia sẻ bí kíp tán đổ chị đẹp L. (sinh năm 1989) chỉ trong một đêm mưa gió. Thay vì hoa hồng hay nến, T. đã mang đến nhà chị L. một gói mì Hảo Hảo chua cay và hai quả trứng gà ta.</p><h3>Sức mạnh của hương vị quốc dân</h3><p>Chị L. nghẹn ngào kể lại: <em>'Lúc đó tôi đang đói, mùi hương mì tôm bốc lên khiến tôi không thể kìm lòng. Cậu ấy còn biết cách đập trứng lòng đào siêu đỉnh. Giây phút ấy tôi biết đây là người đàn ông của đời mình.'</em></p><p>Cư dân mạng lập tức chia phe tranh cãi. Phe FA thì cho rằng đây là 'chiêu trò', phe có gấu thì vội vàng chạy ra tạp hóa mua mì tôm để tích trữ.</p>",
+      "author_id": 2,
+      "category": "Tình Yêu",
+      "created_at": "2024-02-05",
+      "views": 5602,
+      "user": {
+        "id": "2",
+        "email": "hongsang@gmail.com",
+        "password": "123",
+        "full_name": "Thánh Hóng Hớt",
+        "role": "user",
+        "avatar": "https://i.pravatar.cc/150?u=user2"
+      },
+      "comments": [
+        {
+          "id": "2",
+          "post_id": 2,
+          "user_id": 1,
+          "content": "Hư cấu quá!",
+          "created_at": "2024-02-05"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Cụ bà 90 tuổi leo núi Everest bằng dép tổ ong gây bão cộng đồng mạng",
+      "thumbnail": "https://picsum.photos/id/1015/800/450",
+      "content": "<p><strong>Giới leo núi quốc tế đang 'sốc toàn tập' trước hình ảnh một cụ bà Việt Nam chinh phục nóc nhà thế giới với trang bị không thể đơn giản hơn.</strong></p><p>Không cần giày chuyên dụng tiền tỷ, không cần bình oxy, cụ bà Nguyễn Thị C. (90 tuổi, quê Thái Bình) đã leo lên đỉnh Everest chỉ với đôi dép tổ ong huyền thoại đã ngả màu cháo lòng.</p><h3>Bí quyết sống khỏe?</h3><p>Khi được phóng viên CNN phỏng vấn, cụ C. cười móm mém: <em>'Tao tưởng đây là núi Bà Đen, leo lên tính đi chùa cầu duyên cho đứa cháu nội ế chỏng chơ ở nhà. Ai dè leo mãi không thấy chùa đâu, thấy mỗi tuyết.'</em></p><p>Hãng Adidas và Nike được cho là đang liên hệ cụ để mua lại bản quyền thiết kế đôi dép tổ ong này với giá triệu đô.</p>",
+      "author_id": 1,
+      "category": "Thể Thao",
+      "created_at": "2024-02-04",
+      "views": 12000
+    },
+    {
+      "id": "4",
+      "title": "Kinh hoàng: Nuôi lợn đất 3 năm, đập ra toàn tờ vé số trúng giải độc đắc... hụt",
+      "thumbnail": "https://picsum.photos/id/1076/800/450",
+      "content": "<p><strong>Một bi kịch tài chính vừa xảy ra tại phòng trọ sinh viên khu vực Cầu Giấy, khiến ai nghe xong cũng phải rớt nước mắt (vì cười).</strong></p><p>Nam sinh viên H. quyết tâm tiết kiệm tiền cưới vợ bằng cách nuôi heo đất. Mỗi ngày, thay vì bỏ tiền mặt, H. mua một tờ vé số và nhét vào heo với hy vọng 'đổi đời'.</p><p>Sau 3 năm, H. đập heo và phát hiện mình sở hữu 1.000 tờ vé số... trật lất. Tuy nhiên, bi kịch chưa dừng lại ở đó. Có một tờ trúng giải độc đắc 2 tỷ đồng nhưng đã... hết hạn lĩnh thưởng từ năm 2022.</p><p><em>'Em chỉ muốn gục ngã,'</em> H. chia sẻ trong khi đang ăn mì tôm không người lái.</p>",
+      "author_id": 2,
+      "category": "Đời Sống",
+      "created_at": "2024-02-04",
+      "views": 3400
+    },
+    {
+      "id": "5",
+      "title": "NÓNG: Con mèo nhà hàng xóm biết hát bài 'Cắt đôi nỗi sầu' cực hay",
+      "thumbnail": "https://picsum.photos/id/1025/800/450",
+      "content": "<p><strong>Showbiz Việt sắp có thêm một tân binh đáng gờm. Không phải hot girl, không phải hot boy, mà là một chú mèo mướp.</strong></p><p>Đoạn clip dài 30 giây ghi lại cảnh chú mèo tên 'Mập' đang gào thét trên mái nhà vào lúc 2 giờ sáng. Điều kỳ lạ là âm vực và giai điệu tiếng kêu của Mập giống hệt đoạn điệp khúc bài hát 'Cắt đôi nỗi sầu' của Tăng Duy Tân.</p><h3>Chuyên gia thẩm âm nói gì?</h3><p>Nhạc sĩ X nhận định: <em>'Kỹ thuật luyến láy của Mập rất điêu luyện, đặc biệt là nốt cao (high note) khi bị giẫm phải đuôi. Đây là tài năng thiên bẩm.'</em></p><p>Hiện Mập đang được các công ty giải trí săn đón để debut làm ca sĩ, nghệ danh dự kiến là 'M-TP' (Mèo Thích Pate).</p>",
+      "author_id": 2,
+      "category": "Showbiz",
+      "created_at": "2024-02-03",
+      "views": 8800
+    },
+    {
+      "title": "Tin Cực Sốc 1: Sự thật về việc không làm gì cũng có ăn",
+      "category": "Tin Sốc",
+      "thumbnail_url": "https://th.bing.com/th/id/OIP.tMwojh0-xa7L63v9sEgOuQHaE7?w=247&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 1 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "author_id": 1,
+      "id": "6"
+    },
+    {
+      "id": "7",
+      "title": "Tin Cực Sốc 2: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/102/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 2 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Công Nghệ",
+      "created_at": "2026-02-02",
+      "views": 2198
+    },
+    {
+      "id": "8",
+      "title": "Tin Cực Sốc 3: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/103/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 3 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Chuyện Lạ",
+      "created_at": "2026-02-01",
+      "views": 4991
+    },
+    {
+      "id": "9",
+      "title": "Tin Cực Sốc 4: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/104/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 4 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Ẩm Thực",
+      "created_at": "2026-01-31",
+      "views": 3890
+    },
+    {
+      "title": "Tin Cực Sốc 5: Sự thật về việc không làm gì cũng có ăn",
+      "category": "Đời Sống",
+      "thumbnail_url": "https://picsum.photos/id/105/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 5 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "author_id": 1,
+      "id": "10",
+      "user": {
+        "id": "1",
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Tổng Biên Tập",
+        "role": "admin",
+        "avatar": "https://i.pravatar.cc/150?u=admin"
+      },
+      "comments": [],
+      "views": 1
+    },
+    {
+      "id": "11",
+      "title": "Tin Cực Sốc 6: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/106/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 6 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Công Nghệ",
+      "created_at": "2026-01-29",
+      "views": 4317
+    },
+    {
+      "id": "12",
+      "title": "Tin Cực Sốc 7: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/107/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 7 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Showbiz",
+      "created_at": "2026-01-28",
+      "views": 1113
+    },
+    {
+      "id": "13",
+      "title": "Tin Cực Sốc 8: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/108/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 8 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Tâm Linh",
+      "created_at": "2026-01-27",
+      "views": 3391
+    },
+    {
+      "id": "14",
+      "title": "Tin Cực Sốc 9: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/109/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 9 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Showbiz",
+      "created_at": "2026-01-26",
+      "views": 1408
+    },
+    {
+      "id": "15",
+      "title": "Tin Cực Sốc 10: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/110/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 10 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Tâm Linh",
+      "created_at": "2026-01-25",
+      "views": 3552
+    },
+    {
+      "id": "16",
+      "title": "Tin Cực Sốc 11: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/111/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 11 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Showbiz",
+      "created_at": "2026-01-24",
+      "views": 5362
+    },
+    {
+      "id": "17",
+      "title": "Tin Cực Sốc 12: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/112/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 12 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Ẩm Thực",
+      "created_at": "2026-01-23",
+      "views": 2274
+    },
+    {
+      "id": "18",
+      "title": "Tin Cực Sốc 13: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/113/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 13 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Chuyện Lạ",
+      "created_at": "2026-01-22",
+      "views": 1588
+    },
+    {
+      "id": "19",
+      "title": "Tin Cực Sốc 14: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/114/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 14 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Tâm Linh",
+      "created_at": "2026-01-21",
+      "views": 1309
+    },
+    {
+      "id": "20",
+      "title": "Tin Cực Sốc 15: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/115/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 15 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Tâm Linh",
+      "created_at": "2026-01-20",
+      "views": 2352
+    },
+    {
+      "id": "21",
+      "title": "Tin Cực Sốc 16: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/116/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 16 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Tâm Linh",
+      "created_at": "2026-01-19",
+      "views": 618
+    },
+    {
+      "id": "22",
+      "title": "Tin Cực Sốc 17: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/117/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 17 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Showbiz",
+      "created_at": "2026-01-18",
+      "views": 3810
+    },
+    {
+      "id": "23",
+      "title": "Tin Cực Sốc 18: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/118/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 18 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Chuyện Lạ",
+      "created_at": "2026-01-17",
+      "views": 1637
+    },
+    {
+      "id": "24",
+      "title": "Tin Cực Sốc 19: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/119/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 19 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 1,
+      "author_id": 1,
+      "category": "Ẩm Thực",
+      "created_at": "2026-01-16",
+      "views": 2257
+    },
+    {
+      "id": "25",
+      "title": "Tin Cực Sốc 20: Sự thật về việc không làm gì cũng có ăn",
+      "thumbnail": "https://picsum.photos/id/120/800/450",
+      "content": "<p><strong>(Báo Lá Cải) - Đây là bài báo demo số 20 nhằm mục đích lấp đầy nội dung.</strong></p>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n                <h3>Tại sao lại như vậy?</h3>\n                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n                <blockquote>\"Trích dẫn vô nghĩa nhưng nghe có vẻ triết lý để bài viết trông xịn hơn.\" - Một người qua đường</blockquote>\n                <p><em>Bài viết này không có ý nghĩa gì cả, chỉ để test giao diện đẹp trai của bạn thôi.</em></p>",
+      "userId": 2,
+      "author_id": 2,
+      "category": "Ẩm Thực",
+      "created_at": "2026-01-15",
+      "views": 2787
+    },
+    {
+      "id": "4f69",
+      "title": "fgbn",
+      "category": "Đời sống",
+      "thumbnail_url": "https://th.bing.com/th/id/OIP.tMwojh0-xa7L63v9sEgOuQHaE7?w=247&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+      "content": "gjhbg",
+      "author_id": "ad48",
+      "created_at": "2026-02-04",
+      "views": 3,
+      "user": {
+        "id": "ad48",
+        "email": "htri@gmail.com",
+        "password": "123456",
+        "full_name": "htri",
+        "avatar": "https://th.bing.com/th/id/OIP.n2J-te2edVD91F8w6udMmgHaHa?w=168&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+        "role": "user"
+      },
+      "comments": []
+    },
+    {
+      "id": "b3d5",
+      "title": "chó bt sủa",
+      "category": "Chuyện lạ",
+      "thumbnail_url": "https://placehold.co/600x400",
+      "content": "ghviankfdvpgsxzdfghgfdcv cx",
+      "author_id": "ad48",
+      "created_at": "2026-02-05",
+      "views": 0
+    },
+    {
+      "id": "e5c1",
+      "title": "jaahhàhâf",
+      "category": "Tin Sốc",
+      "thumbnail_url": "https://placehold.co/600x400",
+      "content": "ghgfczvdvxdvxfvxhtdfb",
+      "author_id": "ad48",
+      "created_at": "2026-02-05",
+      "views": 0
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "post_id": 1,
+      "user_id": 2,
+      "content": "Tin chuẩn không anh em? Để ra xem thử!",
+      "created_at": "2024-02-05"
+    },
+    {
+      "id": "2",
+      "post_id": 2,
+      "user_id": 1,
+      "content": "Hư cấu quá!",
+      "created_at": "2024-02-05"
+    },
+    {
+      "id": "dae8",
+      "postId": 4,
+      "user_id": 1,
+      "content": "hii\n",
+      "user": {
+        "id": 1,
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Tổng Biên Tập",
+        "role": "admin",
+        "avatar": "https://i.pravatar.cc/150?u=admin"
+      },
+      "created_at": "2026-02-04T23:23:29.950Z"
+    },
+    {
+      "id": "2c3c",
+      "postId": 6,
+      "user_id": "ad48",
+      "content": "hi\n",
+      "user": {
+        "id": "ad48",
+        "email": "htri@gmail.com",
+        "password": "123456",
+        "full_name": "htru",
+        "avatar": "https://via.placeholder.com/150",
+        "role": "user"
+      },
+      "created_at": "2026-02-04T23:24:57.046Z"
+    },
+    {
+      "id": "feb7",
+      "postId": "2",
+      "user_id": 1,
+      "content": "haha",
+      "user": {
+        "id": 1,
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Tổng Biên Tập",
+        "role": "admin",
+        "avatar": "https://i.pravatar.cc/150?u=admin"
+      },
+      "created_at": "2026-02-04T23:55:58.795Z"
+    }
+  ]
+}
