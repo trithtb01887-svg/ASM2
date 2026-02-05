@@ -16,9 +16,29 @@ const loading = ref(false)
 const router = useRouter()
 
 async function handleRegister() {
+  // 1. Validate khớp Password
   if (form.value.password !== confirmPassword.value) {
-    error.value = 'Passwords do not match'
+    error.value = 'Mật khẩu xác nhận không khớp!'
     return
+  }
+
+  // 2. Validate độ mạnh Password
+  const password = form.value.password;
+  const minLength = 6;
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+
+  if (password.length <= minLength) {
+    error.value = 'Mật khẩu phải dài hơn 6 ký tự!';
+    return;
+  }
+  if (!hasUpperCase) {
+    error.value = 'Mật khẩu phải chứa ít nhất 1 chữ hoa!';
+    return;
+  }
+  if (!hasLowerCase) {
+    error.value = 'Mật khẩu phải chứa ít nhất 1 chữ thường!';
+    return;
   }
   
   loading.value = true

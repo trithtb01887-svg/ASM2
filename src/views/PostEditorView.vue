@@ -68,10 +68,36 @@ async function submitPost() {
 
   try {
     if (isEditMode.value) {
+      // Logic update bài viết (giữ nguyên hoặc cập nhật author_id nếu cần)
+      // Thường thì update không đổi author, nhưng để chắc chắn ta cứ lấy user hiện tại làm người sửa cuối (hoặc giữ nguyên logic cũ)
+      // Ở đây user chỉ yêu cầu fix logic CREATE (PostCreate.vue), nhưng PostEditorView dùng chung.
+      // Tuy nhiên, logic user yêu cầu tập trung vào "Đăng bài viết mới".
       await PostService.updatePost(route.params.id, form.value)
       alert('Cập nhật bài viết thành công!')
     } else {
-      await PostService.createPost(form.value)
+      // 1. Lấy user từ storage như yêu cầu
+      const userStr = localStorage.getItem('user_info') || localStorage.getItem('user')
+      const currentUser = userStr ? JSON.parse(userStr) : null
+
+      // 2. Validate
+      if (!currentUser) {
+        alert("Bạn chưa đăng nhập! Vui lòng đăng nhập để đăng bài.")
+        return
+      }
+
+      // 3. Cập nhật author_id chuẩn xác từ localStorage
+      form.value.author_id = currentUser.id
+      
+      // Tạo object mới để đảm bảo đúng cấu trúc (hoặc dùng form.value đã update)
+      // Để an toàn và clean, ta dùng form.value nhưng đảm bảo các trường
+      const newPostPayload = {
+        ...form.value,
+        author_id: currentUser.id, // Explicitly set again
+        created_at: new Date().toISOString().split('T')[0],
+        views: 0
+      }
+
+      await PostService.createPost(newPostPayload)
       alert('Đăng bài viết mới thành công!')
     }
     router.push('/dashboard')

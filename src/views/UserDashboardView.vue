@@ -15,9 +15,26 @@ onMounted(async () => {
 async function loadMyPosts() {
   loading.value = true
   try {
-    posts.value = await PostService.getPostsByUser(authState.user.id)
+    // 1. Lấy User hiện tại từ localStorage
+    const userStr = localStorage.getItem('user_info') || localStorage.getItem('user');
+    
+    if (!userStr) {
+      console.warn("User not found in localStorage");
+      return; 
+    }
+    
+    const currentUser = JSON.parse(userStr);
+
+    // 2. Gọi API lấy TẤT CẢ bài (để chắc chắn) rồi lọc client-side
+    // Sử dụng PostService.getAllPosts() thay vì getPostsByUser để bypass lỗi filtering server-side tiềm ẩn
+    const allPosts = await PostService.getAllPosts();
+    
+    // 3. Lọc bài của mình
+    posts.value = allPosts.filter(post => post.author_id === currentUser.id);
+    
   } catch (err) {
-    console.error(err)
+    console.error("Error loading posts:", err)
+    // Fallback: alert user or handle error gracefully
   } finally {
     loading.value = false
   }

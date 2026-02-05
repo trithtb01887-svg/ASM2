@@ -2,6 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
 import PostCard from '@/components/PostCard.vue'
+import HeroSlide from '@/components/HeroSlide.vue'
 
 // -- GLOBAL STATE --
 const posts = ref([])
@@ -89,6 +90,9 @@ const filteredPosts = computed(() => {
 <template>
   <div class="home-container">
     
+    <!-- HERO SLIDE -->
+    <HeroSlide />
+
     <!-- FILTER BAR -->
     <div class="card border-0 shadow-sm mb-5 rounded-4 overflow-hidden">
         <div class="card-body p-4 bg-white">

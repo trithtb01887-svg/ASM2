@@ -23,6 +23,14 @@
       "full_name": "htri",
       "avatar": "https://th.bing.com/th/id/OIP.n2J-te2edVD91F8w6udMmgHaHa?w=168&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
       "role": "user"
+    },
+    {
+      "id": "b876",
+      "email": "trithtb01887@gmail.com",
+      "password": "#Htri2802",
+      "full_name": "oibgvh",
+      "avatar": "https://via.placeholder.com/150",
+      "role": "user"
     }
   ],
   "posts": [
@@ -178,7 +186,16 @@
       "author_id": 2,
       "category": "Công Nghệ",
       "created_at": "2026-01-29",
-      "views": 4317
+      "views": 4318,
+      "user": {
+        "id": "2",
+        "email": "hongsang@gmail.com",
+        "password": "123",
+        "full_name": "Thánh Hóng Hớt",
+        "role": "user",
+        "avatar": "https://i.pravatar.cc/150?u=user2"
+      },
+      "comments": []
     },
     {
       "id": "12",
@@ -369,6 +386,16 @@
       "category": "Tin Sốc",
       "thumbnail_url": "https://placehold.co/600x400",
       "content": "ghgfczvdvxdvxfvxhtdfb",
+      "author_id": "ad48",
+      "created_at": "2026-02-05",
+      "views": 0
+    },
+    {
+      "id": "911e",
+      "title": "gđfxcbcbcb",
+      "category": "Đời sống",
+      "thumbnail_url": "https://placehold.co/600x400",
+      "content": "adcvb jcvfxcbfhtgh",
       "author_id": "ad48",
       "created_at": "2026-02-05",
       "views": 0
