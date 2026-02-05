@@ -1,61 +1,36 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
-import PostCard from '@/components/PostCard.vue'
 import HeroSlide from '@/components/HeroSlide.vue'
 
-// -- GLOBAL STATE --
+// GLOBAL STATE
 const posts = ref([])
 const loading = ref(true)
-const error = ref(null)
-
-// -- FILTER STATE --
-const searchQuery = ref('')
 const selectedCategory = ref('Tất cả')
+const searchQuery = ref('')
+const categories = ['Tất cả', 'Đời Sống', 'Chuyện Lạ', 'Showbiz', 'Tâm Linh', 'Ẩm Thực', 'Công Nghệ', 'Thể Thao']
 
-// -- CATEGORIES --
-const categories = [
-    'Tất cả', 
-    'Đời Sống', 
-    'Chuyện Lạ', 
-    'Showbiz', 
-    'Tâm Linh', 
-    'Ẩm Thực', 
-    'Công Nghệ', 
-    'Tình Yêu', 
-    'Thể Thao'
-]
-
-// -- FETCH DATA --
+// FETCH API
 const getAllPosts = async () => {
     try {
         loading.value = true
-        console.log("Bắt đầu gọi API lấy TẤT CẢ bài viết...");
+        // Gọi API lấy bài published
+        const response = await axios.get('http://localhost:3000/posts?status=published')
         
-        // QUAN TRỌNG: Không thêm params gì cả (Sạch 100%)
-        const response = await axios.get('http://localhost:3000/posts');
-        
-        console.log("Dữ liệu Home lấy được (Raw):", response);
-        
-        const data = response.data;
-
-        // Xử lý dữ liệu (Array hoặc Object)
-        if (Array.isArray(data)) {
-            posts.value = data;
-        } else if (data && Array.isArray(data.data)) {
-            posts.value = data.data;
-        } else {
-            console.error("Data is not an array:", data);
-            posts.value = [];
+        let fetchedPosts = []
+        if (Array.isArray(response.data)) {
+            fetchedPosts = response.data
+        } else if (response.data && Array.isArray(response.data.data)) {
+            fetchedPosts = response.data.data
         }
-        
-        console.log("Dữ liệu đã về:", posts.value);
+
+        // CLIENT-SIDE SORT: Mới nhất lên đầu
+        posts.value = fetchedPosts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
 
     } catch (err) {
-        console.error("Lỗi API:", err);
-        error.value = "Lỗi: Không thể lấy bài viết! Xem console để biết chi tiết.";
+        console.error(err)
     } finally {
-        loading.value = false;
+        loading.value = false
     }
 }
 
@@ -63,121 +38,133 @@ onMounted(() => {
     getAllPosts()
 })
 
-// -- FILTER LOGIC --
+// FILTER LOGIC
 const filteredPosts = computed(() => {
     return posts.value.filter(post => {
-        // 1. Lọc theo từ khóa tìm kiếm
-        const query = searchQuery.value ? searchQuery.value.toLowerCase() : '';
-        const title = post.title ? post.title.toLowerCase() : '';
-        const matchSearch = title.includes(query);
-        
-        // 2. Lọc theo danh mục
-        let matchCategory = true;
-        
-        if (selectedCategory.value && selectedCategory.value !== 'Tất cả') {
-           if (post.category) {
-               matchCategory = post.category.toLowerCase().includes(selectedCategory.value.toLowerCase());
-           } else {
-               matchCategory = false; 
-           }
-        }
-
-        return matchSearch && matchCategory;
-    });
+        const matchSearch = post.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+        const matchCat = selectedCategory.value === 'Tất cả' || (post.category && post.category.includes(selectedCategory.value))
+        return matchSearch && matchCat
+    })
 })
 </script>
 
 <template>
-  <div class="home-container">
-    
-    <!-- HERO SLIDE -->
+  <!-- 1. HERO SLIDE FULL WIDTH -->
+  <div class="container py-4">
     <HeroSlide />
 
-    <!-- FILTER BAR -->
-    <div class="card border-0 shadow-sm mb-5 rounded-4 overflow-hidden">
-        <div class="card-body p-4 bg-white">
-            <div class="row g-3">
-                <!-- Category Pills -->
-                <div class="col-lg-8">
-                    <div class="d-flex flex-wrap gap-2">
-                        <button 
-                            v-for="cat in categories" 
-                            :key="cat"
-                            class="btn rounded-pill fw-bold transition-all px-3 py-2"
-                            :class="selectedCategory === cat ? 'btn-danger shadow' : 'btn-light text-secondary bg-light-subtle'"
-                            @click="selectedCategory = cat"
-                        >
-                            {{ cat }}
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Search -->
-                <div class="col-lg-4">
-                    <div class="input-group">
-                        <span class="input-group-text bg-light border-0"><i class="bi bi-search text-muted"></i></span>
-                        <input 
-                            type="text" 
-                            class="form-control bg-light border-0 py-2" 
-                            placeholder="Tìm kiếm tin tức..." 
-                            v-model="searchQuery"
-                        >
-                    </div>
-                </div>
-            </div>
+    <!-- 2. FILTER & SEARCH BAR (Glassmorphism) -->
+    <div class="filter-bar p-3 mb-5 rounded-4 d-flex flex-wrap justify-content-between align-items-center gap-3 shadow-sm bg-white">
+        <div class="d-flex flex-wrap gap-2">
+            <button 
+                v-for="cat in categories" 
+                :key="cat"
+                class="btn rounded-pill fw-bold px-3 transition-colors"
+                :class="selectedCategory === cat ? 'btn-dark' : 'btn-light text-secondary'"
+                @click="selectedCategory = cat"
+            >
+                {{ cat }}
+            </button>
+        </div>
+        <div class="search-box">
+             <input type="text" class="form-control rounded-pill bg-light border-0 px-4" placeholder="Tìm kiếm nhanh..." v-model="searchQuery">
         </div>
     </div>
 
-    <!-- STATUS MESSAGES -->
+    <!-- 3. TITLE HEADING -->
+    <div class="d-flex align-items-center mb-4">
+        <div class="bg-danger rounded-pill" style="width: 5px; height: 30px;"></div>
+        <h2 class="ms-3 fw-bold text-uppercase mb-0 text-dark heading-font">
+            {{ selectedCategory === 'Tất cả' ? 'Tin Mới Cập Nhật' : selectedCategory }}
+        </h2>
+    </div>
+
+    <!-- 4. MAIN GRID -->
     <div v-if="loading" class="text-center py-5">
-        <div class="spinner-border text-danger" role="status"></div>
-        <p class="mt-2 text-muted">Đang tải tin nóng...</p>
+        <div class="spinner-grow text-dark" role="status"></div>
     </div>
 
-    <div v-else-if="error" class="alert alert-danger text-center">
-        {{ error }}
+    <div v-else-if="filteredPosts.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" v-for="post in filteredPosts" :key="post.id">
+            
+            <!-- MODERN POST CARD -->
+            <router-link :to="'/posts/' + post.id" class="text-decoration-none text-dark">
+                <div class="card h-100 border-0 shadow-sm modern-card overflow-hidden rounded-4 cursor-pointer bg-white">
+                    
+                    <!-- Card Image Wrapper -->
+                    <div class="card-img-wrapper position-relative">
+                        <img :src="post.thumbnail" class="card-img-top object-fit-cover" alt="thumbnail" style="height: 220px;">
+                        
+                        <!-- Floating Category Badge -->
+                        <span class="badge bg-white text-dark position-absolute top-0 start-0 m-3 shadow-sm rounded-pill px-3 py-2 fw-bold text-uppercase" style="font-size: 0.75rem;">
+                            {{ post.category }}
+                        </span>
+
+                        <!-- Date Overlay on Hover -->
+                        <div class="date-overlay position-absolute bottom-0 start-0 p-2 w-100 text-white small bg-dark bg-opacity-75 text-center opacity-0 transition-opacity">
+                             {{ post.created_at || 'Mới cập nhật' }}
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold mb-3 lh-base text-truncate-2">
+                            {{ post.title }}
+                        </h5>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                             <span><i class="bi bi-person-circle me-1"></i> Admin</span>
+                             <span><i class="bi bi-eye me-1"></i> {{ post.views }}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </router-link>
+
+        </div>
     </div>
 
-    <!-- POST LIST -->
-    <div v-else>
-        <h3 class="mb-4 fw-bold text-uppercase border-start border-5 border-danger ps-3 font-heading text-dark">
-            {{ selectedCategory === 'Tất cả' ? 'Tin Nổi Bật' : selectedCategory }}
-        </h3>
-
-        <!-- Grid -->
-        <div v-if="filteredPosts.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <div class="col fade-in" v-for="post in filteredPosts" :key="post.id">
-                <PostCard :post="post" />
-            </div>
-        </div>
-
-        <!-- No Results -->
-        <div v-else class="text-center py-5">
-            <h4 class="text-muted">Không tìm thấy bài viết nào.</h4>
-            <div class="mt-3">
-                <button class="btn btn-outline-secondary" @click="selectedCategory = 'Tất cả'; searchQuery = ''">
-                    Xem tất cả bài viết
-                </button>
-            </div>
-        </div>
+    <div v-else class="text-center py-5 text-muted">
+        <h4>Chưa có bài viết nào ở mục này.</h4>
     </div>
 
   </div>
 </template>
 
 <style scoped>
-.font-heading {
-    font-family: 'Playfair Display', serif;
+.heading-font {
+    font-family: 'Playfair Display', serif; /* Font sang trọng */
 }
-.transition-all {
-    transition: all 0.2s ease;
+
+/* CARD HOVER EFFECTS */
+.modern-card {
+    transition: all 0.3s ease;
 }
-/* Animation */
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+
+.modern-card:hover {
+    transform: translateY(-5px); /* Nổi lên */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.15) !important; /* Bóng đậm */
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+
+.modern-card:hover .date-overlay {
+    opacity: 1 !important;
+}
+
+/* Text Truncate 2 dòng */
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.transition-colors {
+    transition: all 0.2s;
+}
+
+/* Input search focus */
+.form-control:focus {
+    box-shadow: none;
+    background-color: #fff;
+    border: 1px solid #ddd !important;
 }
 </style>

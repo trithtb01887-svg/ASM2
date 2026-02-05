@@ -1,55 +1,141 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import UserService from '@/services/UserService'
+import axios from 'axios'
+
+const router = useRouter()
+const loading = ref(false)
+const serverError = ref('')
 
 const form = ref({
+  full_name: '',
   email: '',
   password: '',
-  full_name: '',
-  avatar: 'https://via.placeholder.com/150' // Default
+  confirmPassword: '',
+  avatar: 'https://ui-avatars.com/api/?background=random',
+  role: 'user'
 })
 
-const confirmPassword = ref('')
-const error = ref('')
-const loading = ref(false)
-const router = useRouter()
+// Error state object
+const errors = ref({
+  full_name: '',
+  email: '',
+  password: '',
+  confirmPassword: ''
+})
 
+// --- VALIDATION LOGIC ---
+
+// 1. Validate Full Name
+function validateName() {
+  if (!form.value.full_name.trim()) {
+    errors.value.full_name = "Họ và tên không được để trống."
+  } else {
+    errors.value.full_name = ""
+  }
+}
+
+// 2. Validate Email
+function validateEmail() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!form.value.email) {
+    errors.value.email = "Email không được để trống."
+  } else if (!emailRegex.test(form.value.email)) {
+    errors.value.email = "Email không đúng định dạng (ví dụ: abc@domain.com)."
+  } else {
+    errors.value.email = ""
+  }
+}
+
+// 3. Validate Password (Strict)
+function validatePassword() {
+  const pwd = form.value.password;
+  errors.value.password = ""; // Reset
+  
+  if (!pwd) {
+    errors.value.password = "Mật khẩu không được để trống.";
+    return;
+  }
+
+  // Check criteria individually for better UX
+  const issues = [];
+  if (pwd.length <= 6) issues.push("dài hơn 6 ký tự");
+  if (!/[A-Z]/.test(pwd)) issues.push("chứa chữ HOA");
+  if (!/[!@#$%^&*]/.test(pwd)) issues.push("chứa ký tự đặc biệt (!@#...)");
+
+  if (issues.length > 0) {
+    errors.value.password = "Mật khẩu yếu: Cần " + issues.join(", ") + ".";
+  }
+  
+  // Re-validate confirm password whenever password changes
+  if (form.value.confirmPassword) validateConfirmPassword();
+}
+
+// 4. Validate Confirm Password
+function validateConfirmPassword() {
+  if (!form.value.confirmPassword) {
+    errors.value.confirmPassword = "Vui lòng nhập lại mật khẩu."
+  } else if (form.value.confirmPassword !== form.value.password) {
+    errors.value.confirmPassword = "Mật khẩu nhập lại không khớp."
+  } else {
+    errors.value.confirmPassword = ""
+  }
+}
+
+// Computed property to disable Submit button
+const isFormInvalid = computed(() => {
+  // Return true if any field has error OR any field is empty
+  return (
+    !!errors.value.full_name || 
+    !!errors.value.email || 
+    !!errors.value.password || 
+    !!errors.value.confirmPassword ||
+    !form.value.full_name ||
+    !form.value.email ||
+    !form.value.password ||
+    !form.value.confirmPassword
+  );
+})
+
+// --- SUBMIT LOGIC ---
 async function handleRegister() {
-  // 1. Validate khớp Password
-  if (form.value.password !== confirmPassword.value) {
-    error.value = 'Mật khẩu xác nhận không khớp!'
-    return
-  }
+  // Final check before submit
+  validateName();
+  validateEmail();
+  validatePassword();
+  validateConfirmPassword();
 
-  // 2. Validate độ mạnh Password
-  const password = form.value.password;
-  const minLength = 6;
-  const hasUpperCase = /[A-Z]/.test(password);
-  const hasLowerCase = /[a-z]/.test(password);
+  if (isFormInvalid.value) return;
 
-  if (password.length <= minLength) {
-    error.value = 'Mật khẩu phải dài hơn 6 ký tự!';
-    return;
-  }
-  if (!hasUpperCase) {
-    error.value = 'Mật khẩu phải chứa ít nhất 1 chữ hoa!';
-    return;
-  }
-  if (!hasLowerCase) {
-    error.value = 'Mật khẩu phải chứa ít nhất 1 chữ thường!';
-    return;
-  }
-  
   loading.value = true
-  error.value = ''
-  
+  serverError.value = ''
+
   try {
-    await UserService.register(form.value)
-    alert('Registration successful! Please login.')
+    // Check Email Exists
+    const checkRes = await axios.get(`http://localhost:3000/users?email=${form.value.email}`)
+    if (checkRes.data.length > 0) {
+      serverError.value = "Email này đã được sử dụng!"
+      loading.value = false
+      return
+    }
+
+    // Create User
+    const newUser = {
+      email: form.value.email,
+      password: form.value.password,
+      full_name: form.value.full_name,
+      avatar: form.value.avatar + '&name=' + encodeURIComponent(form.value.full_name),
+      role: 'user'
+    }
+
+    await axios.post('http://localhost:3000/users', newUser)
+    
+    alert('Đăng ký thành công! Vui lòng đăng nhập.')
     router.push('/login')
+
   } catch (err) {
-    error.value = err.message || 'Registration failed'
+    console.error(err)
+    serverError.value = "Lỗi kết nối server. Vui lòng thử lại."
   } finally {
     loading.value = false
   }
@@ -59,42 +145,89 @@ async function handleRegister() {
 <template>
   <div class="row justify-content-center mt-5">
     <div class="col-md-6 col-lg-5">
-      <div class="card shadow-sm">
+      <div class="card shadow-lg border-0 rounded-4">
         <div class="card-body p-4">
-          <h3 class="text-center mb-4">Create Account</h3>
+          <h3 class="text-center mb-4 fw-bold text-success">Đăng Ký Tài Khoản</h3>
           
-          <form @submit.prevent="handleRegister">
+          <form @submit.prevent="handleRegister" novalidate>
+            
+            <!-- Full Name -->
             <div class="mb-3">
-              <label class="form-label">Full Name</label>
-              <input type="text" class="form-control" v-model="form.full_name" required>
+              <label class="form-label fw-bold">Họ và Tên</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                :class="{ 'is-invalid': errors.full_name }"
+                v-model="form.full_name" 
+                @blur="validateName"
+                @input="validateName"
+                placeholder="Nguyen Van A"
+              >
+              <div class="invalid-feedback">{{ errors.full_name }}</div>
             </div>
             
+            <!-- Email -->
             <div class="mb-3">
-              <label class="form-label">Email address</label>
-              <input type="email" class="form-control" v-model="form.email" required>
+              <label class="form-label fw-bold">Email</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                :class="{ 'is-invalid': errors.email }"
+                v-model="form.email" 
+                @blur="validateEmail"
+                @input="validateEmail"
+                placeholder="email@example.com"
+              >
+              <div class="invalid-feedback">{{ errors.email }}</div>
             </div>
             
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                 <label class="form-label">Password</label>
-                 <input type="password" class="form-control" v-model="form.password" required minlength="6">
-              </div>
-              <div class="col-md-6 mb-3">
-                 <label class="form-label">Confirm Password</label>
-                 <input type="password" class="form-control" v-model="confirmPassword" required>
-              </div>
+            <!-- Password -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Mật khẩu</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                :class="{ 'is-invalid': errors.password }"
+                v-model="form.password" 
+                @blur="validatePassword"
+                @input="validatePassword"
+                placeholder=">6 ký tự, có Hoa & đặc biệt"
+              >
+              <div class="invalid-feedback">{{ errors.password }}</div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Nhập lại mật khẩu</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                :class="{ 'is-invalid': errors.confirmPassword }"
+                v-model="form.confirmPassword" 
+                @blur="validateConfirmPassword"
+                @input="validateConfirmPassword"
+                placeholder="Xác nhận mật khẩu"
+              >
+              <div class="invalid-feedback">{{ errors.confirmPassword }}</div>
             </div>
             
-            <div v-if="error" class="alert alert-danger py-2 small">
-              {{ error }}
+            <!-- Global Server Error -->
+            <div v-if="serverError" class="alert alert-danger py-2 small text-center">
+              <i class="bi bi-exclamation-triangle-fill me-1"></i> {{ serverError }}
             </div>
             
-            <button type="submit" class="btn btn-success w-100" :disabled="loading">
-              {{ loading ? 'Creating Account...' : 'Register' }}
+            <!-- Submit Button -->
+            <button 
+              type="submit" 
+              class="btn btn-success w-100 fw-bold py-2 shadow-sm" 
+              :disabled="loading || isFormInvalid"
+            >
+              <span v-if="loading" class="spinner-border spinner-border-sm me-2"></span>
+              {{ loading ? 'Đang xử lý...' : 'Đăng Ký Ngay' }}
             </button>
             
-            <div class="text-center mt-3">
-              <small class="text-muted">Already have an account? <router-link to="/login">Login</router-link></small>
+            <div class="text-center mt-4">
+              <small class="text-muted">Đã có tài khoản? <router-link to="/login" class="text-decoration-none fw-bold">Đăng nhập</router-link></small>
             </div>
           </form>
         </div>

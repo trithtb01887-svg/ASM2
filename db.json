@@ -15,6 +15,14 @@
       "full_name": "Phóng Viên Tập Sự",
       "role": "user",
       "avatar": "https://ui-avatars.com/api/?name=Phong+Vien&background=random"
+    },
+    {
+      "id": "368e",
+      "email": "ad@gmail.com",
+      "password": "#Htri2802",
+      "full_name": "bùi",
+      "avatar": "https://ui-avatars.com/api/?background=random&name=b%C3%B9i",
+      "role": "user"
     }
   ],
   "posts": [
@@ -26,7 +34,8 @@
       "author_id": 1,
       "category": "Chuyện Lạ",
       "views": 1500,
-      "created_at": "2024-05-20"
+      "created_at": "2024-05-20",
+      "status": "published"
     },
     {
       "id": 2,
@@ -36,7 +45,8 @@
       "author_id": 2,
       "category": "Đời Sống",
       "views": 3200,
-      "created_at": "2024-05-21"
+      "created_at": "2024-05-21",
+      "status": "published"
     },
     {
       "id": 3,
@@ -46,7 +56,8 @@
       "author_id": 1,
       "category": "Công Nghệ",
       "views": 5000,
-      "created_at": "2024-05-22"
+      "created_at": "2024-05-22",
+      "status": "published"
     },
     {
       "id": 4,
@@ -56,7 +67,8 @@
       "author_id": 2,
       "category": "Ẩm Thực",
       "views": 890,
-      "created_at": "2024-05-22"
+      "created_at": "2024-05-22",
+      "status": "published"
     },
     {
       "id": 5,
@@ -66,7 +78,8 @@
       "author_id": 1,
       "category": "Showbiz",
       "views": 12000,
-      "created_at": "2024-05-23"
+      "created_at": "2024-05-23",
+      "status": "published"
     },
     {
       "id": 6,
@@ -76,7 +89,8 @@
       "author_id": 2,
       "category": "Tâm Linh",
       "views": 4500,
-      "created_at": "2024-05-23"
+      "created_at": "2024-05-23",
+      "status": "published"
     },
     {
       "id": 7,
@@ -86,7 +100,8 @@
       "author_id": 1,
       "category": "Công Nghệ",
       "views": 6700,
-      "created_at": "2024-05-24"
+      "created_at": "2024-05-24",
+      "status": "published"
     },
     {
       "id": 8,
@@ -96,7 +111,8 @@
       "author_id": 2,
       "category": "Thể Thao",
       "views": 3300,
-      "created_at": "2024-05-24"
+      "created_at": "2024-05-24",
+      "status": "published"
     },
     {
       "id": 9,
@@ -106,7 +122,8 @@
       "author_id": 1,
       "category": "Tình Yêu",
       "views": 9900,
-      "created_at": "2024-05-25"
+      "created_at": "2024-05-25",
+      "status": "published"
     },
     {
       "id": 10,
@@ -116,7 +133,31 @@
       "author_id": 2,
       "category": "Đời Sống",
       "views": 15000,
-      "created_at": "2024-05-25"
+      "created_at": "2024-05-25",
+      "status": "published"
+    },
+    {
+      "title": "tôi là bùi",
+      "category": "Giải trí",
+      "thumbnail_url": "https://placehold.co/600x400",
+      "content": "hahahaahahahahahag",
+      "author_id": "368e",
+      "thumbnail": "https://placehold.co/600x400",
+      "status": "published",
+      "created_at": "2026-02-05",
+      "id": "20d3"
+    },
+    {
+      "title": "Liveshow Âm Nhạc Hoành Tráng Sắp Diễn Ra",
+      "category": "Giải trí",
+      "thumbnail_url": "https://placehold.co/600x400",
+      "content": "Một đêm nhạc bùng nổ với sự góp mặt của nhiều ngôi sao hàng đầu...",
+      "author_id": 1,
+      "thumbnail": "https://placehold.co/600x400",
+      "status": "published",
+      "created_at": "2026-02-05",
+      "views": 100,
+      "id": "live-show-1"
     }
   ],
   "comments": []

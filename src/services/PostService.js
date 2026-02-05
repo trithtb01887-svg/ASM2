@@ -79,7 +79,8 @@ const PostService = {
             content: post.content,
             author_id: post.userId || post.author_id,
             created_at: new Date().toISOString().split('T')[0], // YYYY-MM-DD
-            views: 0
+            views: 0,
+            status: post.status || 'pending' // Default pending if missing
         };
         const response = await api.post('/posts', newPost);
         return response.data;

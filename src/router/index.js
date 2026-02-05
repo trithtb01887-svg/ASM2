@@ -1,15 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import UserService from '@/services/UserService'
+import PostService from '@/services/PostService' // Keeping imports clean
 
-// Import views (will create them next)
+// Import Views
 import HomeView from '@/views/HomeView.vue'
 import PostDetailView from '@/views/PostDetailView.vue'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import UserDashboardView from '@/views/UserDashboardView.vue'
 import PostEditorView from '@/views/PostEditorView.vue'
-import AdminDashboardView from '@/views/AdminDashboardView.vue'
-import UserProfileView from '@/views/UserProfileView.vue'
+import AdminDashboardView from '@/views/AdminDashboardView.vue' // Keeping legacy if present
+import UserProfileView from '@/views/UserProfileView.vue' // New
+import AdminUserManager from '@/views/AdminUserManager.vue' // New
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,49 +40,38 @@ const router = createRouter({
             path: '/dashboard',
             name: 'dashboard',
             component: UserDashboardView,
-            meta: { requiresAuth: true }
-        },
-        {
-            path: '/profile',
-            name: 'profile',
-            component: UserProfileView,
-            meta: { requiresAuth: true }
+            // Assuming we handle auth logic inside components or global guard
+            // but component-level logic was requested.
         },
         {
             path: '/posts/new',
             name: 'create-post',
-            component: PostEditorView,
-            meta: { requiresAuth: true }
+            component: PostEditorView
         },
         {
             path: '/posts/edit/:id',
             name: 'edit-post',
             component: PostEditorView,
-            props: true,
-            meta: { requiresAuth: true }
+            props: true
         },
+        // NEW ROUTES
+        {
+            path: '/profile',
+            name: 'profile',
+            component: UserProfileView
+        },
+        {
+            path: '/admin/users',
+            name: 'admin-users',
+            component: AdminUserManager
+        },
+        // Existing Admin route if needed
         {
             path: '/admin',
             name: 'admin',
-            component: AdminDashboardView,
-            meta: { requiresAuth: true, requiresAdmin: true }
+            component: AdminDashboardView
         }
     ]
-})
-
-// Route Guards
-router.beforeEach((to, from, next) => {
-    const currentUser = UserService.getCurrentUser();
-    const isAuthenticated = !!currentUser;
-    const isAdmin = currentUser?.role === 'admin';
-
-    if (to.meta.requiresAuth && !isAuthenticated) {
-        next({ name: 'login' });
-    } else if (to.meta.requiresAdmin && !isAdmin) {
-        next({ name: 'home' }); // Or error page
-    } else {
-        next();
-    }
 })
 
 export default router
