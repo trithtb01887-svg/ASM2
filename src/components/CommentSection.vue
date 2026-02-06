@@ -28,7 +28,7 @@ async function submitComment() {
   submitting.value = true
   try {
     const comment = {
-      postId: props.postId,
+      post_id: props.postId,
       user_id: authState.user.id,
       content: newCommentContent.value,
       user: authState.user // optimizing display for immediate update

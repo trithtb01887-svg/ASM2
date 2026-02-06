@@ -93,6 +93,14 @@ async function submitPost() {
         submitting.value = false
     }
 }
+
+function handleCancel() {
+    if (currentUser.value && currentUser.value.role === 'admin') {
+        router.push('/admin')
+    } else {
+        router.push('/dashboard')
+    }
+}
 </script>
 
 <template>
@@ -128,7 +136,7 @@ async function submitPost() {
                    </div>
                    
                    <div class="text-end">
-                       <router-link to="/dashboard" class="btn btn-secondary me-2">Hủy</router-link>
+                       <button type="button" @click="handleCancel" class="btn btn-secondary me-2">Hủy</button>
                        <button type="submit" class="btn btn-primary fw-bold px-4" :disabled="submitting">
                            {{ submitting ? 'ĐANG GỬI...' : (isEditMode ? 'LƯU LẠI' : 'ĐĂNG BÀI') }}
                        </button>

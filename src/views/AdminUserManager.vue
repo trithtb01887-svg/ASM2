@@ -90,9 +90,9 @@ async function deleteUser(id) {
                              </td>
                              <td>{{ user.email }}</td>
                              <td>
-                                 <span class="badge rounded-pill px-3 py-2" 
-                                    :class="user.role === 'admin' ? 'bg-danger bg-opacity-10 text-danger' : 'bg-primary bg-opacity-10 text-primary'">
-                                     {{ user.role.toUpperCase() }}
+                                 <span class="badge rounded-pill px-3 py-2 shadow-sm" 
+                                    :class="user.role === 'admin' ? 'bg-danger text-white' : 'bg-primary text-white'">
+                                     {{ user.role ? user.role.toUpperCase() : 'USER' }}
                                  </span>
                              </td>
                              <td class="text-center">

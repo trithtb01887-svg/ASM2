@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "admin@baolacai.com",
       "password": "123",
       "full_name": "Admin Tổng",
@@ -9,7 +9,7 @@
       "avatar": "https://ui-avatars.com/api/?name=Admin+Tong&background=random"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "user@baolacai.com",
       "password": "123",
       "full_name": "Phóng Viên Tập Sự",
@@ -27,9 +27,9 @@
   ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Sốc: Cụ bà 80 tuổi leo đỉnh Everest để tìm... mèo lạc",
-      "thumbnail": "https://picsum.photos/600/400?random=1",
+      "thumbnail": "https://picsum.photos/id/101/600/400",
       "content": "<p>Cả thế giới bàng hoàng trước nghị lực phi thường...</p>",
       "author_id": 1,
       "category": "Chuyện Lạ",
@@ -38,9 +38,9 @@
       "status": "published"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Rùng mình: Phát hiện 'kho báu' dưới gầm giường sinh viên",
-      "thumbnail": "https://picsum.photos/600/400?random=2",
+      "thumbnail": "https://picsum.photos/id/102/600/400",
       "content": "<p>Hóa ra đó chỉ là đống bát đĩa chưa rửa từ tháng trước...</p>",
       "author_id": 2,
       "category": "Đời Sống",
@@ -49,20 +49,29 @@
       "status": "published"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Hài hước: Thanh niên tán gái bằng code Python và cái kết",
-      "thumbnail": "https://picsum.photos/600/400?random=3",
+      "thumbnail": "https://picsum.photos/id/103/600/400",
       "content": "<p>Cô gái đã 'crush' ngay sau khi thấy màn hình Terminal xanh lè...</p>",
       "author_id": 1,
       "category": "Công Nghệ",
-      "views": 5000,
+      "views": 5001,
       "created_at": "2024-05-22",
-      "status": "published"
+      "status": "published",
+      "user": {
+        "id": "1",
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Admin Tổng",
+        "role": "admin",
+        "avatar": "https://ui-avatars.com/api/?name=Admin+Tong&background=random"
+      },
+      "comments": []
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Cảnh báo: Ăn trà sữa trân châu có thể biến thành... cá heo?",
-      "thumbnail": "https://picsum.photos/600/400?random=4",
+      "thumbnail": "https://picsum.photos/id/104/600/400",
       "content": "<p>Nghiên cứu mới (do tôi tự nghĩ ra) cho thấy...</p>",
       "author_id": 2,
       "category": "Ẩm Thực",
@@ -71,9 +80,9 @@
       "status": "published"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Showbiz: Ca sĩ A lộ bằng chứng hẹn hò với... đĩa cơm tấm",
-      "thumbnail": "https://picsum.photos/600/400?random=5",
+      "thumbnail": "https://picsum.photos/id/106/600/400",
       "content": "<p>Hình ảnh paparazzi chụp được lúc 2h sáng rất rõ nét...</p>",
       "author_id": 1,
       "category": "Showbiz",
@@ -82,9 +91,9 @@
       "status": "published"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Tâm linh: Nửa đêm nghe tiếng gõ cửa, mở ra thấy... shipper",
-      "thumbnail": "https://picsum.photos/600/400?random=6",
+      "thumbnail": "https://picsum.photos/id/107/600/400",
       "content": "<p>Câu chuyện kinh dị sặc mùi mắm tôm bún đậu...</p>",
       "author_id": 2,
       "category": "Tâm Linh",
@@ -93,20 +102,29 @@
       "status": "published"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Công nghệ: AI ChatGPT tuyên bố sẽ ứng cử Tổng thống",
-      "thumbnail": "https://picsum.photos/600/400?random=7",
+      "thumbnail": "https://picsum.photos/id/108/600/400",
       "content": "<p>Khẩu hiệu tranh cử: 'Make Code Great Again'...</p>",
       "author_id": 1,
       "category": "Công Nghệ",
-      "views": 6700,
+      "views": 6701,
       "created_at": "2024-05-24",
-      "status": "published"
+      "status": "published",
+      "user": {
+        "id": "1",
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Admin Tổng",
+        "role": "admin",
+        "avatar": "https://ui-avatars.com/api/?name=Admin+Tong&background=random"
+      },
+      "comments": []
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Thể thao: Đội tuyển bóng đá X chiêu mộ cầu thủ robot",
-      "thumbnail": "https://picsum.photos/600/400?random=8",
+      "thumbnail": "https://picsum.photos/id/109/600/400",
       "content": "<p>FIFA đang họp khẩn để xem xét luật mới...</p>",
       "author_id": 2,
       "category": "Thể Thao",
@@ -115,26 +133,60 @@
       "status": "published"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Tình yêu: Cô gái chia tay bạn trai vì không biết cài Win",
-      "thumbnail": "https://picsum.photos/600/400?random=9",
+      "thumbnail": "https://picsum.photos/id/110/600/400",
       "content": "<p>'Anh ấy bảo em tự Google đi, quá vô tâm!' - Cô gái chia sẻ...</p>",
       "author_id": 1,
       "category": "Tình Yêu",
-      "views": 9900,
+      "views": 9902,
       "created_at": "2024-05-25",
-      "status": "published"
+      "status": "published",
+      "user": {
+        "id": "1",
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Admin Tổng",
+        "role": "admin",
+        "avatar": "https://ui-avatars.com/api/?name=Admin+Tong&background=random"
+      },
+      "comments": []
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Kinh hoàng: Giá xăng giảm 100đ, người dân đổ xô mua xe hơi",
-      "thumbnail": "https://picsum.photos/600/400?random=10",
+      "thumbnail": "https://picsum.photos/id/111/600/400",
       "content": "<p>Các showroom ô tô cháy hàng chỉ trong 1 giờ...</p>",
       "author_id": 2,
       "category": "Đời Sống",
-      "views": 15000,
+      "views": 15004,
       "created_at": "2024-05-25",
-      "status": "published"
+      "status": "published",
+      "user": {
+        "id": "2",
+        "email": "user@baolacai.com",
+        "password": "123",
+        "full_name": "Phóng Viên Tập Sự",
+        "role": "user",
+        "avatar": "https://ui-avatars.com/api/?name=Phong+Vien&background=random"
+      },
+      "comments": [
+        {
+          "id": "b255",
+          "post_id": "10",
+          "user_id": "368e",
+          "content": "hi\\",
+          "user": {
+            "id": "368e",
+            "email": "ad@gmail.com",
+            "password": "#Htri2802",
+            "full_name": "bùi",
+            "avatar": "https://ui-avatars.com/api/?background=random&name=b%C3%B9i",
+            "role": "user"
+          },
+          "created_at": "2026-02-06T16:55:06.882Z"
+        }
+      ]
     },
     {
       "title": "tôi là bùi",
@@ -145,7 +197,17 @@
       "thumbnail": "https://placehold.co/600x400",
       "status": "published",
       "created_at": "2026-02-05",
-      "id": "20d3"
+      "id": "20d3",
+      "user": {
+        "id": "368e",
+        "email": "ad@gmail.com",
+        "password": "#Htri2802",
+        "full_name": "bùi",
+        "avatar": "https://ui-avatars.com/api/?background=random&name=b%C3%B9i",
+        "role": "user"
+      },
+      "comments": [],
+      "views": 1
     },
     {
       "title": "Liveshow Âm Nhạc Hoành Tráng Sắp Diễn Ra",
@@ -156,9 +218,89 @@
       "thumbnail": "https://placehold.co/600x400",
       "status": "published",
       "created_at": "2026-02-05",
-      "views": 100,
-      "id": "live-show-1"
+      "views": 102,
+      "id": "live-show-1",
+      "user": {
+        "id": "1",
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Admin Tổng",
+        "role": "admin",
+        "avatar": "https://ui-avatars.com/api/?name=Admin+Tong&background=random"
+      },
+      "comments": []
+    },
+    {
+      "title": "béooo",
+      "category": "Đời sống",
+      "thumbnail_url": "https://th.bing.com/th/id/OIP.m1vCChjtLpn5SumPFVvsvgHaE6?w=294&h=195&c=7&r=0&o=7&pid=1.7&rm=3",
+      "content": "huhu 100kg",
+      "author_id": "368e",
+      "thumbnail": "https://th.bing.com/th/id/OIP.m1vCChjtLpn5SumPFVvsvgHaE6?w=294&h=195&c=7&r=0&o=7&pid=1.7&rm=3",
+      "status": "published",
+      "id": "97c0"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "id": "ea46",
+      "postId": "9",
+      "user_id": "368e",
+      "content": "hi\n",
+      "user": {
+        "id": "368e",
+        "email": "ad@gmail.com",
+        "password": "#Htri2802",
+        "full_name": "bùi",
+        "avatar": "https://ui-avatars.com/api/?background=random&name=b%C3%B9i",
+        "role": "user"
+      },
+      "created_at": "2026-02-06T15:48:21.391Z"
+    },
+    {
+      "id": "e89e",
+      "postId": "3",
+      "user_id": "1",
+      "content": "hi\n",
+      "user": {
+        "id": "1",
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Admin Tổng",
+        "role": "admin",
+        "avatar": "https://ui-avatars.com/api/?name=Admin+Tong&background=random"
+      },
+      "created_at": "2026-02-06T16:42:39.992Z"
+    },
+    {
+      "id": "d366",
+      "postId": "97c0",
+      "user_id": "1",
+      "content": "hi",
+      "user": {
+        "id": "1",
+        "email": "admin@baolacai.com",
+        "password": "123",
+        "full_name": "Admin Tổng",
+        "role": "admin",
+        "avatar": "https://ui-avatars.com/api/?name=Admin+Tong&background=random"
+      },
+      "created_at": "2026-02-06T16:42:55.649Z"
+    },
+    {
+      "id": "b255",
+      "post_id": "10",
+      "user_id": "368e",
+      "content": "hi\\",
+      "user": {
+        "id": "368e",
+        "email": "ad@gmail.com",
+        "password": "#Htri2802",
+        "full_name": "bùi",
+        "avatar": "https://ui-avatars.com/api/?background=random&name=b%C3%B9i",
+        "role": "user"
+      },
+      "created_at": "2026-02-06T16:55:06.882Z"
+    }
+  ]
 }

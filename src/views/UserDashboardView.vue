@@ -122,11 +122,11 @@ function getStatusLabel(status) {
             <td class="text-muted small">{{ post.created_at }}</td>
             <td class="fw-bold text-primary">{{ post.views }}</td>
             <td class="text-center">
-              <router-link :to="{ name: 'edit-post', params: { id: post.id } }" class="btn btn-sm btn-outline-primary me-2">
-                <i class="bi bi-pencil-fill"></i>
+              <router-link :to="{ name: 'edit-post', params: { id: post.id } }" class="btn btn-sm btn-primary me-2 fw-bold shadow-sm">
+                <i class="bi bi-pencil-fill me-1"></i> Sửa
               </router-link>
-              <button @click="deletePost(post.id)" class="btn btn-sm btn-outline-danger">
-                <i class="bi bi-trash-fill"></i>
+              <button @click="deletePost(post.id)" class="btn btn-sm btn-danger fw-bold shadow-sm">
+                <i class="bi bi-trash-fill me-1"></i> Xóa
               </button>
             </td>
           </tr>

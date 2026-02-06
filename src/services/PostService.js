@@ -2,15 +2,26 @@ import api from './api';
 
 const PostService = {
     async getAllPosts() {
-        const response = await api.get('/posts?_sort=created_at&_order=desc');
-        // Handle json-server v1 beta response variations
-        if (Array.isArray(response.data)) {
-            return response.data;
+        try {
+            console.log('PostService: getAllPosts - calling /posts');
+            const response = await api.get('/posts');
+            let data = [];
+
+            // Handle json-server v1 beta response variations
+            if (Array.isArray(response.data)) {
+                data = response.data;
+            } else if (response.data && Array.isArray(response.data.data)) {
+                data = response.data.data;
+            }
+
+            console.log(`PostService: getAllPosts - fetched ${data.length} items. Sorting...`);
+
+            // Client-side sort (Newest first)
+            return data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+        } catch (error) {
+            console.error('PostService: getAllPosts error', error);
+            return [];
         }
-        if (response.data && Array.isArray(response.data.data)) {
-            return response.data.data;
-        }
-        return [];
     },
 
     async getPublishedPosts() {
@@ -101,12 +112,13 @@ const PostService = {
         const newPost = {
             title: post.title,
             category: post.category,
-            thumbnail_url: post.thumbnail_url || 'https://placehold.co/600x400',
+            thumbnail: post.thumbnail_url || 'https://placehold.co/600x400', // Standardize on 'thumbnail'
+            thumbnail_url: post.thumbnail_url || 'https://placehold.co/600x400', // Keep for backward compat if needed (optional)
             content: post.content,
             author_id: post.userId || post.author_id,
             created_at: new Date().toISOString().split('T')[0], // YYYY-MM-DD
             views: 0,
-            status: post.status || 'pending' // Default pending if missing
+            status: post.status || 'published' // Default published for now to see immediately
         };
         const response = await api.post('/posts', newPost);
         return response.data;

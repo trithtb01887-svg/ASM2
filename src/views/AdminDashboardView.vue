@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import axios from 'axios'
+import PostService from '@/services/PostService'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -38,11 +38,12 @@ onMounted(async () => {
 async function fetchPosts() {
   loading.value = true
   try {
-    const res = await axios.get('http://localhost:3000/posts')
-    posts.value = res.data
+    // Use PostService instead of direct axios
+    posts.value = await PostService.getAllPosts()
     console.log("Loaded posts:", posts.value.length)
   } catch (err) {
     alert("Lỗi tải dữ liệu!")
+    console.error(err)
   } finally {
     loading.value = false
   }
@@ -50,7 +51,7 @@ async function fetchPosts() {
 
 async function approvePost(id) {
   try {
-    await axios.patch(`http://localhost:3000/posts/${id}`, { status: 'published' })
+    await PostService.updatePost(id, { status: 'published' })
     alert("ĐÃ DUYỆT BÀI THÀNH CÔNG")
     await fetchPosts() 
   } catch (err) {
@@ -63,7 +64,7 @@ async function rejectPost(id) {
   if (!reason) return
 
   try {
-    await axios.patch(`http://localhost:3000/posts/${id}`, { 
+    await PostService.updatePost(id, { 
       status: 'rejected', 
       rejection_reason: reason 
     })
@@ -78,7 +79,7 @@ async function deletePost(id) {
   if (!confirm("BẠN CÓ CHẮC MUỐN XÓA BÀI NÀY?")) return
 
   try {
-    await axios.delete(`http://localhost:3000/posts/${id}`)
+    await PostService.deletePost(id)
     alert("ĐÃ XÓA BÀI VIẾT")
     posts.value = posts.value.filter(p => p.id !== id)
   } catch (err) {
@@ -116,7 +117,7 @@ function getStatusLabel(status) {
           <li class="nav-item">
             <button 
               class="nav-link fw-bold px-4 py-3 border-bottom-0" 
-              :class="{ active: activeTab === 'pending', 'text-primary border shadow-sm rounded-top': activeTab === 'pending', 'text-secondary': activeTab !== 'pending' }" 
+              :class="{ active: activeTab === 'pending', 'text-primary border shadow-sm rounded-top': activeTab === 'pending', 'text-dark opacity-50': activeTab !== 'pending' }" 
               @click="activeTab = 'pending'"
             >
               CẦN DUYỆT ({{ pendingPosts.length }})
@@ -125,7 +126,7 @@ function getStatusLabel(status) {
           <li class="nav-item">
             <button 
               class="nav-link fw-bold px-4 py-3 border-bottom-0" 
-              :class="{ active: activeTab === 'published', 'text-success border shadow-sm rounded-top': activeTab === 'published', 'text-secondary': activeTab !== 'published' }" 
+              :class="{ active: activeTab === 'published', 'text-success border shadow-sm rounded-top': activeTab === 'published', 'text-dark opacity-50': activeTab !== 'published' }" 
               @click="activeTab = 'published'"
             >
               KHO BÀI VIẾT ({{ processedPosts.length }})

@@ -164,13 +164,13 @@ onMounted(() => {
         <div class="mb-5 position-relative">
           <div class="ratio-custom shadow hover-shadow transition-all">
             <img 
-              :src="post.thumbnail || 'https://placehold.co/800x450?text=Fallback+Image'" 
+              :src="post.thumbnail || post.thumbnail_url || 'https://placehold.co/800x450?text=Fallback+Image'" 
               class="post-thumbnail" 
               :alt="post.title"
               @error="handleImageError"
             >
           </div>
-          <p class="text-center text-muted fst-italic mt-2 small bg-light py-1 d-inline-block px-3 rounded-pill position-absolute start-50 translate-middle-x" style="bottom: -15px; white-space: nowrap;">
+          <p class="text-center text-secondary fst-italic mt-2 small bg-light py-1 d-inline-block px-3 rounded-pill position-absolute start-50 translate-middle-x" style="bottom: -15px; white-space: nowrap;">
             Ảnh minh họa: {{ post.title }}
           </p>
         </div>
