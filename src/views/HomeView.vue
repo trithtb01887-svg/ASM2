@@ -1,11 +1,12 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import axios from 'axios'
+import PostService from '@/services/PostService'
 import HeroSlide from '@/components/HeroSlide.vue'
 
 // GLOBAL STATE
 const posts = ref([])
 const loading = ref(true)
+const getError = ref(null) // Added for debug
 const selectedCategory = ref('Tất cả')
 const searchQuery = ref('')
 const categories = ['Tất cả', 'Đời Sống', 'Chuyện Lạ', 'Showbiz', 'Tâm Linh', 'Ẩm Thực', 'Công Nghệ', 'Thể Thao']
@@ -13,24 +14,27 @@ const categories = ['Tất cả', 'Đời Sống', 'Chuyện Lạ', 'Showbiz', '
 // FETCH API
 const getAllPosts = async () => {
     try {
+        console.log('Starting getAllPosts...');
         loading.value = true
-        // Gọi API lấy bài published
-        const response = await axios.get('http://localhost:3000/posts?status=published')
+        // Gọi Service lấy bài published
+        console.log('Calling PostService.getPublishedPosts()...');
+        const data = await PostService.getPublishedPosts()
+        console.log('Data received from service:', data);
         
-        let fetchedPosts = []
-        if (Array.isArray(response.data)) {
-            fetchedPosts = response.data
-        } else if (response.data && Array.isArray(response.data.data)) {
-            fetchedPosts = response.data.data
+        if (!data || data.length === 0) {
+            console.warn('No data received or empty array');
         }
 
-        // CLIENT-SIDE SORT: Mới nhất lên đầu
-        posts.value = fetchedPosts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        // CLIENT-SIDE SORT: Mới nhất lên đầu (already sorted by API but kept for safety)
+        posts.value = data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        console.log('Posts updated:', posts.value);
 
     } catch (err) {
-        console.error(err)
+        console.error('Error in getAllPosts:', err)
+        getError.value = err.message || JSON.stringify(err)
     } finally {
         loading.value = false
+        console.log('Loading set to false');
     }
 }
 
@@ -125,6 +129,21 @@ const filteredPosts = computed(() => {
 
     <div v-else class="text-center py-5 text-muted">
         <h4>Chưa có bài viết nào ở mục này.</h4>
+        
+        <!-- DEBUG SECTION: REMOVE BEFORE PRODUCTION -->
+        <div class="mt-5 p-3 bg-warning bg-opacity-10 border border-warning rounded text-start">
+            <h5 class="text-danger fw-bold">🛠 DEBUG INFO</h5>
+            <p><strong>Loading:</strong> {{ loading }}</p>
+            <p><strong>Total Posts Fetched:</strong> {{ posts.length }}</p>
+            <p><strong>Filtered Posts:</strong> {{ filteredPosts.length }}</p>
+            <p><strong>Selected Category:</strong> {{ selectedCategory }}</p>
+            <p><strong>Search Query:</strong> "{{ searchQuery }}"</p>
+            <div v-if="getError" class="text-danger"><strong>Error:</strong> {{ getError }}</div>
+            <details class="mt-2">
+                <summary>Raw Data (First Post)</summary>
+                <pre class="small mt-2 bg-light p-2 rounded">{{ posts.length > 0 ? JSON.stringify(posts[0], null, 2) : 'No data' }}</pre>
+            </details>
+        </div>
     </div>
 
   </div>

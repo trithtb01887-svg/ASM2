@@ -13,6 +13,32 @@ const PostService = {
         return [];
     },
 
+    async getPublishedPosts() {
+        try {
+            // Fetch ALL posts first to debug
+            console.log('Fetching ALL posts to filter client-side...');
+            const response = await api.get('/posts');
+
+            let allPosts = [];
+            if (Array.isArray(response.data)) {
+                allPosts = response.data;
+            } else if (response.data && Array.isArray(response.data.data)) {
+                allPosts = response.data.data;
+            }
+
+            console.log(`Fetched ${allPosts.length} total posts via API.`);
+
+            // Filter client-side
+            const published = allPosts.filter(p => p.status === 'published');
+            console.log(`Filtered down to ${published.length} published posts.`);
+
+            return published;
+        } catch (e) {
+            console.error('PostService HTTP ERROR', e);
+            throw e;
+        }
+    },
+
     async getPosts(page = 1, limit = 6, search = '', category = '') {
         let url = `/posts?_page=${page}&_limit=${limit}&_sort=created_at&_order=desc`;
         if (search) url += `&q=${search}`;
